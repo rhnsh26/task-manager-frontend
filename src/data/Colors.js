@@ -1,0 +1,31 @@
+const colors = [
+    {
+      name:'green',
+      value:'#2ecc71'
+    },
+    {
+      name:'skyblue',
+      value:'#3498db'
+    },
+    {
+      name:'purple',
+      value:'#9b59b6'
+    },
+    {
+      name:'blue',
+      value:'#34495e'
+    },
+    {
+      name:'yellow',
+      value:'#d6b308'
+    },
+    {
+      name:'orange',
+      value:'#e67e22'
+    },
+    {
+      name:'light-green',
+      value:'#16a085'
+    }
+  ];
+  export default colors;
