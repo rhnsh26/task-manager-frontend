@@ -49,24 +49,24 @@ class SignIn extends Component {
       <div className="container m-auto ">
         <div className="flex flex-col m-auto max-w-xs shadow-md bg-gray-100 mt-24 px-6 py-4 rounded">
           <div className="flex flex-col my-4">
-            <h1 className="mb-2">Sign In</h1>
+            <h1 className="mb-2 font-bold text-2xl">Sign In</h1>
           </div>
-          <label className="block text-gray-400 text-sm font-bold md:text-left mb-2 md:mb-1 pr-4">
+          <label className="block text-gray-600 text-sm font-bold md:text-left mb-2 md:mb-1 pr-4">
             Email Id
           </label>
           <input
-            className="h-8 p-2 bg-gray-100 focus:bg-white focus:border-indigo-400 border border-gray-100 focus:outline-none text-gray-600 rounded-sm mb-4 text-sm"
+            className="h-8 p-2 bg-gray-200 focus:bg-white focus:border-indigo-400 border border-gray-100 focus:outline-none text-gray-600 rounded-sm mb-4 text-sm"
             type="email"
             name="email"
             value={this.state.email}
             onChange={this.handleChange}
             placeholder="Email Id "
           />
-          <label className="block text-gray-400 text-sm font-bold md:text-left mb-2 md:mb-1 pr-4">
+          <label className="block text-gray-600 text-sm font-bold md:text-left mb-2 md:mb-1 pr-4">
             Password
           </label>
           <input
-            className="h-8 p-2 bg-gray-100 focus:bg-white focus:border-indigo-400 border border-gray-100 focus:outline-none text-gray-600 rounded-sm mb-4 text-sm"
+            className="h-8 p-2 bg-gray-200 focus:bg-white focus:border-indigo-400 border border-gray-100 focus:outline-none text-gray-600 rounded-sm mb-4 text-sm"
             type="password"
             name="password"
             value={this.state.password}

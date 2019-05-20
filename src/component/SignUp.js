@@ -38,9 +38,9 @@ class SignUp extends Component {
       <div className="container m-auto">
         <div className="flex flex-col m-auto max-w-xs shadow-md bg-gray-100 mt-24 px-6 py-4 rounded">
           <div className="flex flex-col my-4">
-            <h1 className="mb-2">Sign Up</h1>
+            <h1 className="mb-2 font-bold text-2xl">Sign Up</h1>
           </div>
-          <label className="block text-grey text-sm font-bold md:text-left mb-2 md:mb-1 pr-4">
+          <label className="block text-gray-600 text-sm font-bold md:text-left mb-2 md:mb-1 pr-4">
             Full Name
           </label>
           <input
@@ -51,7 +51,7 @@ class SignUp extends Component {
             placeholder="name"
             onChange={this.handleChange}
           />
-          <label className="block text-grey text-sm font-bold md:text-left mb-2 md:mb-1 pr-4">
+          <label className="block text-gray-600 text-sm font-bold md:text-left mb-2 md:mb-1 pr-4">
             Email Id
           </label>
           <input
@@ -62,7 +62,7 @@ class SignUp extends Component {
             placeholder="email"
             onChange={this.handleChange}
           />
-          <label className="block text-grey text-sm font-bold md:text-left mb-2 md:mb-1 pr-4">
+          <label className="block text-gray-600 text-sm font-bold md:text-left mb-2 md:mb-1 pr-4">
             Password
           </label>
           <input
