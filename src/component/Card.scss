@@ -1,55 +1,53 @@
-
-.Single-card{
-    width: 200px;
-    color: white;
-    height: 280px;
-    margin: 10px 5px;
-    padding: 3px 10px;
-    display: flex;
-    border-radius: 4px;
-    flex-direction: column;
-    align-items: flex-start;
-    transition: .3s all ease-in-out; 
-    &:hover{
-        .Delete-button{
-            display: inline-block;   
-        }
-
+.Single-card {
+  width: 200px;
+  color: white;
+  height: 280px;
+  margin: 10px 5px;
+  padding: 3px 10px;
+  display: flex;
+  border-radius: 4px;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: 0.3s all ease-in-out;
+  &:hover {
+    .Delete-button {
+      display: inline-block;
     }
+  }
 }
-.Card-top{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
+.Card-top {
+  display: block;
+  width: 100%;
+  justify-content: space-between;
 }
-.Card-title{
-    font-family: 'Calibri', sans-serif;
-    font-size: 20px;
-    font-weight: 300;
-    text-transform: uppercase;
-    float: left;
-    margin: 5px 18px 5px 0px;
-    overflow: hidden;
+.Card-title {
+  font-family: "Calibri", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  text-transform: uppercase;
+  float: left;
+  margin: 5px 18px 5px 0px;
+  overflow: hidden;
 }
-.Delete-button{
-    font-family: 'Calibri', sans-serif;
-    display: none;
-    font-weight: 300;
-    font-size: 15px;
-    margin: 5px 0 0 0;
-    cursor: pointer;
+.Delete-button {
+  font-family: "Calibri", sans-serif;
+  display: none;
+  font-weight: 300;
+  font-size: 15px;
+  margin: 5px 0 0 0;
+  cursor: pointer;
 }
-.Card-date{
-    font-size: 15px;
-    font-family: 'Calibri', sans-serif;
-    font-weight: 100;
-    opacity: 0.8;
-    float: left;
-    margin: 5px 0px;
+.Card-date {
+  font-size: 15px;
+  font-family: "Calibri", sans-serif;
+  font-weight: 100;
+  opacity: 0.8;
+  float: left;
+  margin: 5px 0px;
 }
-.Card-discription{
-    margin-top: 10px;
-    font-family: 'Calibri', sans-serif;
-    font-size: 16px;
-    font-weight: 300;
+.Card-discription {
+  margin-top: 10px;
+  font-family: "Calibri", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
 }
