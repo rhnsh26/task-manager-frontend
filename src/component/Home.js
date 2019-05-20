@@ -114,7 +114,7 @@ class App extends Component {
   async componentWillMount() {
     const Token = localStorage.getItem("token");
     const response = await axios.get(
-      "http://ec2-54-172-142-131.compute-1.amazonaws.com:8080/todos",
+      "https://task-manager-b.herokuapp.com/todos",
       {
         headers: { Authorization: "Bearer " + Token }
       }
@@ -130,7 +130,7 @@ class App extends Component {
     const Token = localStorage.getItem("token");
     axios
       .post(
-        "http://ec2-54-172-142-131.compute-1.amazonaws.com:8080/todo",
+        "https://task-manager-b.herokuapp.com/todo",
         {
           text: this.state.title,
           description: this.state.description
@@ -155,15 +155,12 @@ class App extends Component {
   async handleDelete() {
     const id = this.state.changeView ? this.state.currTodo._id : null;
     const Token = localStorage.getItem("token");
-    await axios.delete(
-      `http://ec2-54-172-142-131.compute-1.amazonaws.com:8080/todos/${id}`,
-      {
-        headers: { Authorization: "Bearer " + Token }
-      }
-    );
+    await axios.delete(`https://task-manager-b.herokuapp.com/todos/${id}`, {
+      headers: { Authorization: "Bearer " + Token }
+    });
     this.setState({
       todo: this.state.todo.filter(n => n._id !== id),
-      currTodo: undefined
+      currTodo: null
     });
   }
 
@@ -173,7 +170,7 @@ class App extends Component {
     const description = this.state.newDescription;
     const Token = localStorage.getItem("token");
     const res = await axios.patch(
-      `http://ec2-54-172-142-131.compute-1.amazonaws.com:8080/todos/${id}`,
+      `https://task-manager-b.herokuapp.com/todos/${id}`,
       { text, description },
       { headers: { Authorization: "Bearer " + Token } }
     );
@@ -205,7 +202,7 @@ class App extends Component {
     const id = this.state.changeView ? this.state.currTodo._id : null;
     const Token = localStorage.getItem("token");
     await axios.patch(
-      `http://ec2-54-172-142-131.compute-1.amazonaws.com:8080/todos/${id}`,
+      `https://task-manager-b.herokuapp.com/todos/${id}`,
       { completed: !this.state.currTodo.completed },
       { headers: { Authorization: "Bearer " + Token } }
     );
@@ -259,12 +256,9 @@ class App extends Component {
 
   logout() {
     const Token = localStorage.getItem("token");
-    axios.get(
-      "http://ec2-54-172-142-131.compute-1.amazonaws.com:8080/user/logout",
-      {
-        headers: { Authorization: "Bearer " + Token }
-      }
-    );
+    axios.get("https://task-manager-b.herokuapp.com/user/logout", {
+      headers: { Authorization: "Bearer " + Token }
+    });
     localStorage.removeItem("token");
     this.setState({ loggedIn: false });
   }
@@ -319,8 +313,9 @@ class App extends Component {
                 />
               )}
               <button
+                id="create-button"
                 type="submit"
-                className="h-10 w-10 ml-4 focus:outline-none"
+                className="h-10 w-10 ml-4 focus:outline-none rounded-full"
               >
                 {addSvg}
               </button>
@@ -371,13 +366,13 @@ class App extends Component {
                     />
                     <div className="flex mt-4 w-full justify-between items-center">
                       <div
-                        className="w-2/5 pt-1 border-2 h-10 text-center border-gray-200 rounded-sm text-white text-gray-200 hover:text-gray-800 hover:bg-gray-200 focus:outline-none"
+                        className="w-2/5 pt-1 border-2 h-10 text-center border-gray-200 rounded-sm text-white text-gray-200 hover:text-gray-800 hover:bg-gray-200 focus:outline-none cursor-pointer"
                         onClick={this.toggleEdit}
                       >
                         Cancel
                       </div>
                       <div
-                        className="w-2/5 pt-1 border-2 h-10 text-center border-gray-200 rounded-sm text-white text-gray-200 hover:text-gray-800 hover:bg-gray-200 focus:outline-none"
+                        className="w-2/5 pt-1 border-2 h-10 text-center border-gray-200 rounded-sm text-white text-gray-200 hover:text-gray-800 hover:bg-gray-200 focus:outline-none cursor-pointer"
                         onClick={this.handleEdit}
                       >
                         Save
@@ -388,21 +383,22 @@ class App extends Component {
                   <React.Fragment>
                     <h2 className="text-gray-600 font-bold">Title</h2>
                     <h2 className="text-gray-200 text-lg mt-2">
-                      {this.state.currTodo.text}
+                      {this.state.currTodo && this.state.currTodo.text}
                     </h2>
                     <h2 className="text-gray-600 font-bold mt-10">
                       Description
                     </h2>
                     <p className="text-gray-200 text-lg mt-2">
-                      {this.state.currTodo.description}
+                      {this.state.currTodo && this.state.currTodo.description}
                     </p>
                     <h2 className="text-gray-600 font-bold mt-12">
                       Created On
                     </h2>
                     <p className="text-gray-200 text-md mt-2">
-                      {moment(this.state.currTodo.createdAt).format(
-                        "h:mma, D MMM YY"
-                      )}
+                      {this.state.currTodo &&
+                        moment(this.state.currTodo.createdAt).format(
+                          "h:mma, D MMM YY"
+                        )}
                     </p>
                   </React.Fragment>
                 ))}
@@ -420,7 +416,7 @@ class App extends Component {
                 className="h-10 my-4 bg-gray-800 rounded-sm w-full text-gray-200 hover:bg-gray-600 focus:outline-none"
                 onClick={this.handleComplete}
               >
-                {this.state.currTodo.completed ? (
+                {this.state.currTodo && this.state.currTodo.completed ? (
                   <p>Mark as Inompleted</p>
                 ) : (
                   <p>Mark as Completed</p>
@@ -433,7 +429,7 @@ class App extends Component {
                 {/* {deleteSvg} */}
                 Delete
               </button>
-              {!this.state.currTodo.completed && (
+              {this.state.currTodo && !this.state.currTodo.completed && (
                 <button
                   className="h-10 my-4 bg-gray-800 rounded-sm w-full text-gray-200 items-center hover:bg-gray-600 focus:outline-none"
                   onClick={this.toggleEdit}

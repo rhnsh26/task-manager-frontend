@@ -23,7 +23,7 @@ class SignUp extends Component {
 
   async onSubmit() {
     const response = await axios.post(
-      "http://ec2-54-172-142-131.compute-1.amazonaws.com:8080/user",
+      "https://task-manager-b.herokuapp.com/user",
       {
         name: this.state.name,
         email: this.state.email,
@@ -36,7 +36,7 @@ class SignUp extends Component {
   render() {
     return (
       <div className="container m-auto">
-        <div className="flex flex-col m-auto max-w-xs shadow-md bg-grey-lightest mt-24 px-6 py-4 rounded">
+        <div className="flex flex-col m-auto max-w-xs shadow-md bg-gray-100 mt-24 px-6 py-4 rounded">
           <div className="flex flex-col my-4">
             <h1 className="mb-2">Sign Up</h1>
           </div>
@@ -44,7 +44,7 @@ class SignUp extends Component {
             Full Name
           </label>
           <input
-            className="h-8 p-2 bg-grey-lighter focus:bg-white focus:border-indigo border border-grey-lighter focus:outline-none text-grey-darker rounded-sm mb-4 text-sm"
+            className="h-8 p-2 bg-gray-200 focus:bg-white focus:border-indigo-400 border border-gray-200 focus:outline-none text-gray-800 rounded-sm mb-4 text-sm"
             name="name"
             type="text"
             value={this.state.name}
@@ -55,7 +55,7 @@ class SignUp extends Component {
             Email Id
           </label>
           <input
-            className="h-8 p-2 bg-grey-lighter focus:bg-white focus:border-indigo border border-grey-lighter focus:outline-none text-grey-darker rounded-sm mb-4 text-sm"
+            className="h-8 p-2 bg-gray-200 focus:bg-white focus:border-indigo-400 border border-gray-200 focus:outline-none text-gray-800 rounded-sm mb-4 text-sm"
             name="email"
             type="text"
             value={this.state.email}
@@ -66,7 +66,7 @@ class SignUp extends Component {
             Password
           </label>
           <input
-            className="h-8 p-2 bg-grey-lighter focus:bg-white focus:border-indigo border border-grey-lighter focus:outline-none text-grey-darker rounded-sm mb-4 text-sm"
+            className="h-8 p-2 bg-gray-200 focus:bg-white focus:border-indigo-400 border border-gray-200 focus:outline-none text-gray-800 rounded-sm mb-4 text-sm"
             name="password"
             type="text"
             value={this.state.password}
@@ -74,14 +74,14 @@ class SignUp extends Component {
             onChange={this.handleChange}
           />
           <button
-            className="h-10 font-semibold bg-indigo-dark hover:bg-indigo-darker text-white mb-6 mt-2 rounded-sm"
+            className="h-10 font-semibold bg-indigo-600 hover:bg-indigo-800 text-white mb-6 mt-2 rounded-sm"
             onClick={this.onSubmit}
           >
             Submit
           </button>
           <p lassName="h-8 pl-8">
             already a user?{" "}
-            <Link to="/" className="font-bold text-indigo">
+            <Link to="/" className="font-bold text-indigo-400">
               Sign In
             </Link>
           </p>
