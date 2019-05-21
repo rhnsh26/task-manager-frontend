@@ -38,12 +38,10 @@ const completedBox = (
 class Card extends Component {
   constructor(props) {
     super(props);
-    const { i, data } = props;
-    const bgColor = "grey";
+    const { data } = props;
     this.state = {
       title: "",
       description: "",
-      bgColor,
       data,
       hover: false
     };
@@ -71,7 +69,7 @@ class Card extends Component {
       : "text-gray-800";
     return (
       <div
-        className="my-2 py-4 hover:bg-gray-200 cursor:move focus:bg-gray-400"
+        className="my-2 py-4 hover:bg-gray-200 cursor-pointer focus:bg-gray-400"
         onClick={this.toggle}
       >
         <div className="font-black flex ml-2 items-center">

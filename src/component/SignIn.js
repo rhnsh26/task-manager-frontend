@@ -35,7 +35,7 @@ class SignIn extends Component {
         password: this.state.password
       }
     );
-    if (res.status == "200") {
+    if (res.status === 200) {
       localStorage.setItem("token", res.data.token);
       this.setState({ loggedIn: true });
     }
