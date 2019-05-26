@@ -1,7 +1,15 @@
-#create-button:active {
-  background-color: gray;
+#create-button {
+  height: 2.5rem;
+  width: 2.5rem;
+  margin-left: 1rem;
+  border-radius: 50%;
+  :focus {
+    outline: none;
+  }
+  :active {
+    background-color: gray;
+  }
 }
-
 #close_btn:hover {
   stroke: #fff;
 }
@@ -21,6 +29,25 @@
 }
 #logout_btn_sm {
   display: none;
+}
+
+.main-active {
+  width: calc(100%-5rem);
+  transition: all 0.3s ease-out;
+}
+.main-inactive {
+  width: calc(100%-40rem);
+  transition: all 0.3s ease-out;
+}
+#create-title {
+  width: 25%;
+}
+#create-desc {
+  margin-left: 1rem;
+  width: 33.33%;
+}
+#create-text {
+  margin-left: 0.5rem;
 }
 
 @media (max-width: 576px) {
@@ -43,13 +70,33 @@
     display: block;
     margin-bottom: -0.5rem;
   }
-}
-
-.main-active {
-  width: calc(100%-5rem);
-  transition: all 0.3s ease-out;
-}
-.main-inactive {
-  width: calc(100%-40rem);
-  transition: all 0.3s ease-out;
+  #create-form {
+    display: block;
+  }
+  #create-title {
+    width: 16rem;
+  }
+  #create-desc {
+    margin: 1rem 0;
+    width: 16rem;
+  }
+  #create-text {
+    margin-left: 0;
+  }
+  #create-button {
+    width: 16rem;
+    height: 2.5rem;
+    margin: 1rem 0;
+    background-color: #1a202c;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    :active {
+      outline: none;
+      border: none;
+    }
+  }
+  #add-btn {
+    stroke: white;
+  }
 }

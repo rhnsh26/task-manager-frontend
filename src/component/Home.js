@@ -9,6 +9,7 @@ import axios from "axios";
 
 const addSvg = (
   <svg
+    id="add-btn"
     className="m-auto h-10"
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -305,14 +306,16 @@ class App extends Component {
             </span>
           </div>
           <div id="create-todo" className="flex flex-col w-full mt-8">
-            <h2 className="ml-2">Create Task</h2>
+            <h2 id="create-text">Create Task</h2>
             <form
+              id="create-form"
               autoComplete="off"
               onSubmit={this.createCard}
               className="flex flex-row relative my-4"
             >
               <input
-                className="border-b-2 w-1/4 pl-2 focus:outline-none"
+                id="create-title"
+                className="border-b-2 pl-2 focus:outline-none"
                 type="text"
                 name="title"
                 placeholder="Add Title"
@@ -324,8 +327,8 @@ class App extends Component {
               />
               {this.state.show && (
                 <input
-                  className="border-b-2 w-1/3 h-10 pl-2 pt-2 ml-4 focus:outline-none"
-                  id="description-box"
+                  className="border-b-2 h-10 pl-2 pt-2 focus:outline-none"
+                  id="create-desc"
                   type="text"
                   name="description"
                   placeholder="Add Description(Optional)"
@@ -336,7 +339,7 @@ class App extends Component {
               <button
                 id="create-button"
                 type="submit"
-                className="h-10 w-10 ml-4 focus:outline-none rounded-full"
+                // className="h-10 w-10 ml-4 focus:outline-none rounded-full"
               >
                 {addSvg}
               </button>
