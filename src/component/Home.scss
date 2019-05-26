@@ -2,17 +2,49 @@
   background-color: gray;
 }
 
+#close_btn:hover {
+  stroke: #fff;
+}
 .sidebar-active {
-  position: relative;
+  padding: 0 1.5rem;
+  position: sticky;
   width: 40rem;
   right: -40rem;
   transition: all 0.3s ease-out;
 }
+
 .sidebar-inactive {
+  position: sticky;
   right: 0;
   width: 0;
   transition: all 0.3s ease-out;
 }
+#logout_btn_sm {
+  display: none;
+}
+
+@media (max-width: 576px) {
+  .sidebar-active {
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    width: 80vw;
+  }
+  .sidebar-inactive {
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    padding: 0;
+  }
+  #logout_btn {
+    display: none;
+  }
+  #logout_btn_sm {
+    display: block;
+    margin-bottom: -0.5rem;
+  }
+}
+
 .main-active {
   width: calc(100%-5rem);
   transition: all 0.3s ease-out;

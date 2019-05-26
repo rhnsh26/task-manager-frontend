@@ -25,14 +25,31 @@ const addSvg = (
   </svg>
 );
 
+const logutSvg = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="#000000"
+    strokeWidth="1"
+    strokeLinecap="butt"
+    strokeLinejoin="arcs"
+  >
+    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3" />
+  </svg>
+);
+
 const closeSvg = (
   <svg
+    id="close_btn"
     xmlns="http://www.w3.org/2000/svg"
     width="24"
     height="24"
     viewBox="0 0 24 24"
     fill="none"
-    stroke="#edf2f7"
+    stroke="#718096"
     strokeWidth="2"
     strokeLinecap="butt"
     strokeLinejoin="arcs"
@@ -274,14 +291,18 @@ class App extends Component {
     return (
       <div className="flex m-0">
         <div className={`${main} w-full mt-10 mx-10`}>
-          <div className="flex justify-between">
+          <div className="flex justify-between items-center">
             <h1 className="text-4xl items-center">My tasks</h1>
             <button
-              className="items-center font-medium px-4 rounded-sm text-lg bg-gray-900 text-white text-center hover:bg-gray-800"
+              id="logout_btn"
+              className=" items-center font-medium px-4 rounded-sm text-lg bg-gray-900 text-white text-center hover:bg-gray-800"
               onClick={this.logout}
             >
               <Link to="/login">Logout</Link>
             </button>
+            <span id="logout_btn_sm" onClick={this.logout}>
+              <Link to="/login">{logutSvg}</Link>
+            </span>
           </div>
           <div id="create-todo" className="flex flex-col w-full mt-8">
             <h2 className="ml-2">Create Task</h2>
@@ -338,7 +359,7 @@ class App extends Component {
           </div>
         </div>
         <div
-          className={`${sidebar} flex flex-col justify-between bg-gray-900 px-6 pt-16 sticky top-0 h-screen overflow-auto`}
+          className={`${sidebar} flex flex-col justify-between bg-gray-900 pt-16 top-0 h-screen overflow-auto`}
         >
           <div className="flex justify-between w-full">
             <div className="flex flex-col  w-full">
