@@ -159,7 +159,7 @@ class App extends Component {
       )
       .then(res => {
         this.setState({
-          todo: [...this.state.todo, res.data],
+          todo: [res.data, ...this.state.todo],
           show: false,
           title: "",
           description: "",
@@ -295,13 +295,13 @@ class App extends Component {
           <div className="flex justify-between items-center">
             <h1 className="text-4xl items-center">My tasks</h1>
             <button
-              id="logout_btn"
+              id="logout-btn"
               className=" items-center font-medium px-4 rounded-sm text-lg bg-gray-900 text-white text-center hover:bg-gray-800"
               onClick={this.logout}
             >
               <Link to="/login">Logout</Link>
             </button>
-            <span id="logout_btn_sm" onClick={this.logout}>
+            <span id="logout-btn-sm" onClick={this.logout}>
               <Link to="/login">{logutSvg}</Link>
             </span>
           </div>

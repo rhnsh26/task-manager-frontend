@@ -27,7 +27,10 @@
   width: 0;
   transition: all 0.3s ease-out;
 }
-#logout_btn_sm {
+#logout-btn {
+  height: 2.5rem;
+}
+#logout-btn-sm {
   display: none;
 }
 
@@ -63,10 +66,10 @@
     right: 0;
     padding: 0;
   }
-  #logout_btn {
+  #logout-btn {
     display: none;
   }
-  #logout_btn_sm {
+  #logout-btn-sm {
     display: block;
     margin-bottom: -0.5rem;
   }
